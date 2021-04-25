@@ -101,5 +101,4 @@ async def who(ctx, arg = None):
             await ctx.send(embed=embed)
             return None
 
-#bot.run(token)
-client.run(os.environ['token'])
+bot.run(str(os.environ.get('token')))
