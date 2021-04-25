@@ -1,0 +1,22 @@
+{"AverageItemPower":0.0,
+    "Equipment":{"MainHand":null,"OffHand":null,"Head":null,"Armor":null,"Shoes":null,"Bag":null,"Cape":null,"Mount":null,"Potion":null,"Food":null},
+    "Inventory":[],
+    "Name":"HooHooH",
+    "Id":"tgCCtlKzTb2EnVG9dftLKw",
+    "GuildName":"G O S U",
+    "GuildId":"ynxHKlchS160ncjNEgHm2Q","AllianceName":"SLOTH","AllianceId":"ZWYWKWqdTD2xcJfXpu-yYg",
+    "AllianceTag":"",
+    "Avatar":"","AvatarRing":"","DeathFame":11796768,"KillFame":8327988,"FameRatio":0.71,
+    "LifetimeStatistics":{"PvE":{"Total":275782434,"Royal":826251,"Outlands":557935,"Avalon":8870120,"Hellgate":1848034,"CorruptedDungeon":12672950},
+    "Gathering":{
+        "Fiber":{"Total":109410,"Royal":103326,"Outlands":135,"Avalon":5895},
+        "Hide":{"Total":188439,"Royal":117543,"Outlands":65527,"Avalon":5287},
+        "Ore":{"Total":39363,"Royal":35979,"Outlands":0,"Avalon":3330},
+        "Rock":{"Total":51834,"Royal":50476,"Outlands":0,"Avalon":1357},
+        "Wood":{"Total":116001,"Royal":108103,"Outlands":450,"Avalon":7380},
+        "All":{"Total":505047,"Royal":415427,"Outlands":66112,"Avalon":23249}},
+        "Crafting":{"Total":5180570,"Royal":652,"Outlands":0,"Avalon":0},
+        "CrystalLeague":0,
+        "FishingFame":348985,"FarmingFame":693900,
+        "Timestamp":"2021-04-22T00:49:30.056153Z"}
+    }
