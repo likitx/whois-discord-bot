@@ -1,6 +1,7 @@
 # _*_ coding:utf-8 _*_
 import discord, asyncio, json, requests, re
 from discord.ext import commands
+import os
 
 token = "ODM1NjgyMTI1Njg0MTQ2MjE4.YIS_oA.oTv9YAYne5pX4jcaErFFawXbsvs"
 
@@ -100,4 +101,5 @@ async def who(ctx, arg = None):
             await ctx.send(embed=embed)
             return None
 
-bot.run(token)
+#bot.run(token)
+bot.run(os.environ['token'])
