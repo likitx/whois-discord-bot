@@ -1,0 +1,1 @@
+worker: python player_info.py
