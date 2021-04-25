@@ -102,4 +102,4 @@ async def who(ctx, arg = None):
             return None
 
 #bot.run(token)
-bot.run(os.environ['token'])
+client.run(os.environ['token'])
