@@ -3,7 +3,7 @@ import discord, asyncio, json, requests, re
 from discord.ext import commands
 import os
 
-token = "ODM1NjgyMTI1Njg0MTQ2MjE4.YIS_oA.oTv9YAYne5pX4jcaErFFawXbsvs"
+token = "ODM1ODIwNTY1MDkyNzYxNjYx.YIVAjw.uRyZG-WwnIFf-DSJ-MykOa4alxU"
 
 client = discord.Client()
 
@@ -11,6 +11,15 @@ bot = commands.Bot(command_prefix='!')
 
 url_user_name = "https://gameinfo.albiononline.com/api/gameinfo/search?q="
 url_user_id = "https://gameinfo.albiononline.com/api/gameinfo/players/"
+
+async def temp(ctx=None):
+    embed = discord.Embed(title="Char's info", description="", color=0xc16666)
+    embed.add_field(name="!who <char>", value="char's basic info", inline=True)
+    embed.add_field(name="!gi <char>", value="char's gathering info", inline=False)
+    embed.add_field(name="Important !", value="<char> is case sensitive.",inline=False)
+
+    #embed.set_footer(text="<char> is case sensitive.")
+    await ctx.send(embed=embed)
 
 @bot.event
 async def on_ready():
@@ -20,8 +29,9 @@ async def on_ready():
 @bot.command()
 async def gi(ctx, arg = None):
     if(arg == None):
-        embed = discord.Embed(title="char's Gathering&Fishing Fame.", description="usage : !gi [char name]\n[char name] is case sensitive.", color=0xc16666)
-        await ctx.send(embed=embed)
+        #embed = discord.Embed(title="char's guild, alliance, etc.", description="usage : !gi [char name]\n[char name] is case sensitive.", color=0xc16666)
+        #await ctx.send(embed=embed)
+        await temp(ctx)
 
     if(arg != None):
         arg = re.sub('[^A-Za-z0-9]','',arg)
@@ -36,7 +46,7 @@ async def gi(ctx, arg = None):
         pId = data_load["players"][0]["Id"]
 
         if(pName == "" or pName != arg):
-            await ctx.send(f'{arg} is not found')
+            await ctx.send(f"\"{arg}\" is not found. <char> is case sensitive.")
             
         if(pName == arg):
             embed = discord.Embed(title=arg, description="", color=0xc16666)
@@ -65,8 +75,7 @@ async def gi(ctx, arg = None):
 @bot.command()
 async def who(ctx, arg = None):
     if(arg == None):
-        embed = discord.Embed(title="char's guild, alliance, etc.", description="usage : !who [char name]\n[char name] is case sensitive.", color=0xc16666)
-        await ctx.send(embed=embed)
+        await temp(ctx)
         return None
 
     if(arg != None):
@@ -87,7 +96,7 @@ async def who(ctx, arg = None):
         pRatio = data_load["players"][0]["FameRatio"]
 
         if(pName == "" or pName != arg):
-            await ctx.send(f'{arg} is not found')
+            await ctx.send(f'{arg} is not found. Char\'s name is case sensitive.')
             return None
             
         if(pName == arg):
@@ -101,4 +110,5 @@ async def who(ctx, arg = None):
             await ctx.send(embed=embed)
             return None
 
-bot.run(str(os.environ.get('token')))
+#bot.run(str(os.environ.get('token')))
+bot.run(token)
