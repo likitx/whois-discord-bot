@@ -108,4 +108,5 @@ async def who(ctx, arg = None):
             await ctx.send(embed=embed)
             return None
 
+bot.remove_command("help")
 bot.run(str(os.environ.get('token')))
