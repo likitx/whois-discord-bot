@@ -1,5 +1,5 @@
 # _*_ coding:utf-8 _*_
-import discord, asyncio, json, urllib.request, re
+import discord, asyncio, json, requests, re
 from discord.ext import commands
 import os
 
@@ -32,8 +32,7 @@ class UserInfo(commands.Cog):
             await ctx.send(f'{arg}? Hmm...')
             
             fullURL = self.url_user_name+arg
-            with urllib.request.urlopen(fullURL) as url:
-                data_load = json.loads(url.read().decode())
+            data_load = json.loads(requests.get(fullURL))
 
             pName = data_load["players"][0]["Name"]
             pGuild = data_load["players"][0]["GuildName"]
@@ -70,8 +69,7 @@ class UserInfo(commands.Cog):
             await ctx.send(f'{arg}? Hmm...')
 
             fullURL = self.url_user_name+arg
-            with urllib.request.urlopen(fullURL) as url:
-                data_load = json.loads(url.read().decode())
+            data_load = json.loads(requests.get(fullURL))
 
             pName = data_load["players"][0]["Name"]
             pId = data_load["players"][0]["Id"]

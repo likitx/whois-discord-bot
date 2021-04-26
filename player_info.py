@@ -1,5 +1,5 @@
 # _*_ coding:utf-8 _*_
-import discord, asyncio, json, urllib.request, re
+import discord, asyncio, json, requests, re
 from discord.ext import commands
 import os
 
