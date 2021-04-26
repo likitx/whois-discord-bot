@@ -45,6 +45,6 @@ async def reload_cogs(ctx, extension=None):
         await ctx.send(f"{extension} is reloaded")
 
 
-#app.remove_command("help")
-app.run(token)
-#app.run(str(os.environ.get('token')))
+app.remove_command("help")
+#app.run(token)
+app.run(str(os.environ.get('token')))
