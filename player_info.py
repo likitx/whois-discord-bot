@@ -3,8 +3,6 @@ import discord, asyncio, json, urllib.request, re
 from discord.ext import commands
 import os
 
-token = "ODM1ODIwNTY1MDkyNzYxNjYx.YIVAjw.OTbcvW0ogICrcgftF3ekQTzMNL0"
-
 app = commands.Bot(command_prefix="!")
 
 # first loading cogs
