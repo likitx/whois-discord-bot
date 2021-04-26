@@ -94,7 +94,7 @@ async def who(ctx, arg = None):
         pRatio = data_load["players"][0]["FameRatio"]
 
         if(pName == "" or pName != arg):
-            await ctx.send(f'{arg} is not found. Char\'s name is case sensitive.')
+            await ctx.send(f'{arg} is not found. <char> is case sensitive.')
             return None
             
         if(pName == arg):
