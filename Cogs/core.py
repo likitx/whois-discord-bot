@@ -32,7 +32,9 @@ class UserInfo(commands.Cog):
             await ctx.send(f'{arg}? Hmm...')
             
             fullURL = self.url_user_name+arg
-            data_load = json.loads(requests.get(fullURL))
+            r = requests.get(fullURL)
+            data = r.text
+            data_load = json.loads(data)
 
             pName = data_load["players"][0]["Name"]
             pGuild = data_load["players"][0]["GuildName"]
@@ -69,7 +71,9 @@ class UserInfo(commands.Cog):
             await ctx.send(f'{arg}? Hmm...')
 
             fullURL = self.url_user_name+arg
-            data_load = json.loads(requests.get(fullURL))
+            r = requests.get(fullURL)
+            data = r.text
+            data_load = json.loads(data)
 
             pName = data_load["players"][0]["Name"]
             pId = data_load["players"][0]["Id"]
