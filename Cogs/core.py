@@ -39,18 +39,22 @@ class UserInfo(commands.Cog):
             if len(data_load["players"]) == 0:
                 await ctx.send(f'\"{arg}\" is not found. <char> is case sensitive.')
                 return None
-            return
+            else:
+                print(arg+" found success")
+            
 
             pName = data_load["players"][0]["Name"]
             pGuild = data_load["players"][0]["GuildName"]
             if pGuild == "":
-                pGuild = "<>"
+                pGuild = "< >"
             pAlliance = data_load["players"][0]["AllianceName"]
             if pAlliance == "":
-                pAlliance = "<>"
+                pAlliance = "< >"
             pKill = data_load["players"][0]["KillFame"]
             pDeath = data_load["players"][0]["DeathFame"]
             pRatio = data_load["players"][0]["FameRatio"]
+
+            #print(pName,pGuild,pAlliance,pKill,pDeath,pRatio)
 
             if(pName == "" or pName != arg):
                 await ctx.send(f'\"{arg}\" is not found. <char> is case sensitive.')
