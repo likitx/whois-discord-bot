@@ -90,7 +90,8 @@ class UserInfo(commands.Cog):
             if len(data_load["players"]) == 0:
                 await ctx.send(f'\"{arg}\" is not found. <char> is case sensitive.')
                 return None
-            return
+            else:
+                print(arg+" found success")
 
             pName = data_load["players"][0]["Name"]
             pId = data_load["players"][0]["Id"]
