@@ -105,7 +105,7 @@ class UserInfo(commands.Cog):
                 fullURL = self.url_user_id+pId
                 r = requests.get(fullURL)
                 data = r.text
-                data_load = json.loads(data)
+                info_load = json.loads(data)
 
                 pGTotal = info_load["LifetimeStatistics"]["Gathering"]["All"]["Total"]
                 pFiber = info_load["LifetimeStatistics"]["Gathering"]["Fiber"]["Total"]
