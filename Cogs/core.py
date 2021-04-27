@@ -35,19 +35,27 @@ class UserInfo(commands.Cog):
             r = requests.get(fullURL)
             data = r.text
             data_load = json.loads(data)
+            
+            if len(data_load["players"]) == 0:
+                await ctx.send(f'\"{arg}\" is not found. <char> is case sensitive.')
+                return None
+            return
 
             pName = data_load["players"][0]["Name"]
             pGuild = data_load["players"][0]["GuildName"]
+            if pGuild == "":
+                pGuild = "<>"
             pAlliance = data_load["players"][0]["AllianceName"]
-            pTotal = data_load["players"][0]["KillFame"]
+            if pAlliance == "":
+                pAlliance = "<>"
             pKill = data_load["players"][0]["KillFame"]
             pDeath = data_load["players"][0]["DeathFame"]
             pRatio = data_load["players"][0]["FameRatio"]
 
             if(pName == "" or pName != arg):
-                await ctx.send(f'{arg} is not found. <char> is case sensitive.')
+                await ctx.send(f'\"{arg}\" is not found. <char> is case sensitive.')
                 return None
-                
+
             if(pName == arg):
                 embed = discord.Embed(title=arg, description="", color=0xc16666)
                 embed.add_field(name="Guild", value=pGuild, inline=True)
@@ -75,10 +83,15 @@ class UserInfo(commands.Cog):
             data = r.text
             data_load = json.loads(data)
 
+            if len(data_load["players"]) == 0:
+                await ctx.send(f'\"{arg}\" is not found. <char> is case sensitive.')
+                return None
+            return
+
             pName = data_load["players"][0]["Name"]
             pId = data_load["players"][0]["Id"]
 
-            if(pName == "" or pName != arg):
+            if(pName != arg):
                 await ctx.send(f"\"{arg}\" is not found. <char> is case sensitive.")
                 
             if(pName == arg):

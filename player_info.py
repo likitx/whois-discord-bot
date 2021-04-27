@@ -1,5 +1,5 @@
 # _*_ coding:utf-8 _*_
-import discord, asyncio, json, requests, re
+import discord, asyncio, json, urllib.request, re
 from discord.ext import commands
 import os
 
@@ -44,7 +44,10 @@ async def reload_cogs(ctx, extension=None):
         app.load_extension(f"Cogs.{extension}")
         await ctx.send(f"{extension} is reloaded")
 
+@app.event
+async def on_command_error(ctx, error):
+    print(f"```{error}```")
+    await ctx.send("something wrong!")
 
 app.remove_command("help")
-#app.run(token)
 app.run(str(os.environ.get('token')))
