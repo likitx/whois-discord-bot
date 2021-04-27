@@ -103,8 +103,9 @@ class UserInfo(commands.Cog):
                 embed = discord.Embed(title=arg, description="", color=0xc16666)
 
                 fullURL = self.url_user_id+pId
-                with urllib.request.urlopen(fullURL) as url:
-                    info_load = json.loads(url.read().decode())
+                r = requests.get(fullURL)
+                data = r.text
+                data_load = json.loads(data)
 
                 pGTotal = info_load["LifetimeStatistics"]["Gathering"]["All"]["Total"]
                 pFiber = info_load["LifetimeStatistics"]["Gathering"]["Fiber"]["Total"]
