@@ -47,7 +47,6 @@ async def reload_cogs(ctx, extension=None):
 @app.event
 async def on_command_error(ctx, error):
     print(f"```{error}```")
-    await ctx.send("something wrong!")
 
 app.remove_command("help")
 app.run(str(os.environ.get('token')))
